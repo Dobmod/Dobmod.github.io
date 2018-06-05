@@ -1,0 +1,11 @@
+MinecraftContrl:
+content
+{
+Explode:false&1
+TickExplode:false&2
+UnderTile:false&3
+TickUnderTile:false&4
+PassMail:true&5
+newLevelMessage:您正在使用远程控制script.
+}
+end

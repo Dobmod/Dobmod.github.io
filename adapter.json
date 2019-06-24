@@ -18,11 +18,11 @@
 	},
 	{
 		"name":"FID_1",
-		"value":"data_name"
+		"value":"data_number"
 	},
 	{
 		"name":"FID_6",
-		"value":"data_number"
+		"value":"data_name"
 	}
 	]
 }

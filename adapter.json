@@ -1,0 +1,28 @@
+{
+	"item":[
+	{
+		"name":"TableID",
+		"value":"1"
+	},
+	{
+		"name":"PageSize",
+		"value":"1"
+	},
+	{
+		"name":"PageIdx",
+		"value":"1"
+	},
+	{
+		"name":"FieldID",
+		"value":"1,6"
+	},
+	{
+		"name":"name",
+		"value":"data_name"
+	},
+	{
+		"name":"number",
+		"value":"data_number"
+	}
+	]
+}

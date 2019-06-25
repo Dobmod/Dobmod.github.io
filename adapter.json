@@ -1,5 +1,5 @@
 {
-	"item":[
+	"request":[
 	{
 		"name":"TableID",
 		"value":"1"
@@ -17,12 +17,97 @@
 		"value":"1,6"
 	},
 	{
-		"name":"FID_1",
+		"name":"number",
 		"value":"data_number"
 	},
 	{
-		"name":"FID_6",
+		"name":"name",
 		"value":"data_name"
 	}
-	]
+	],
+	"return":[
+	{
+		"field":"FieldID_1",
+		"type":"准考证号"
+	},
+	{
+		"field":"FieldID_2",
+		"type":"全市排名"
+	},
+	{
+		"field":"FieldID_3",
+		"type":"全县(区)排名"
+	}
+	{
+		"field":"FieldID_5",
+		"type":"学校"
+	},
+	{
+		"field":"FieldID_6",
+		"type":"姓名"
+	},
+	{
+		"field":"FieldID_7",
+		"type":"语文"
+	},
+	{
+		"field":"FieldID_8",
+		"type":"数学"
+	},
+	{
+		"field":"FieldID_9",
+		"type":"英语"
+	}, 
+	{
+		"field":"FieldID_10",
+		"type":"物理"
+	},
+	{
+		"field":"FieldID_11",
+		"type":"化学"
+	},
+	{
+		"field":"FieldID_12",
+		"type":"物化综合"
+	},
+	{
+		"field":"FieldID_13",
+		"type":"政治"
+	},
+	{
+		"field":"FieldID_14",
+		"type":"历史"
+	},
+	{
+		"field":"FieldID_15",
+		"type":"政史综合"
+	},
+	{
+		"field":"FieldID_16",
+		"type":"文化课总分"
+	},
+	{
+		"field":"FieldID_17",
+		"type":"体育"
+	},
+	{
+		"field":"FieldID_18",
+		"type":"生物"
+	},
+	{
+		"field":"FieldID_19",
+		"type":"地理"
+	},
+	{
+		"field":"FieldID_20",
+		"type":"加分"
+	},
+	{
+		"field":"FieldID_21",
+		"type":"总分"
+	}
+	],
+	"received":{
+		"where":"db"
+	}
 }

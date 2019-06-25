@@ -17,11 +17,11 @@
 		"value":"1,6"
 	},
 	{
-		"name":"number",
+		"name":"FID_1",
 		"value":"data_number"
 	},
 	{
-		"name":"name",
+		"name":"FID_6",
 		"value":"data_name"
 	}
 	],

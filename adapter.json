@@ -27,6 +27,14 @@
 	],
 	"return":[
 	{
+		"field":"Idx",
+		"type":"unknown"
+	},
+	{
+		"field":"NewsPath",
+		"type":"unknown"
+	},
+	{
 		"field":"Field_1",
 		"type":"准考证号"
 	},

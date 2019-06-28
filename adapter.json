@@ -117,5 +117,12 @@
 	],
 	"received":{
 		"where":"db"
-	}
+	},
+	"school":[
+	{
+		"name":"陇南市第一中学",
+		"src":"images/school/lnyz.png",
+		"introduction":"一所甘肃省示范性普通高中",
+		"where":"www.gslnyz.cn"
+	}]
 }

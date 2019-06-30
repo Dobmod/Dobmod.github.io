@@ -124,6 +124,12 @@
 		"src":"images/school/lnyz.png",
 		"introduction":"一所甘肃省示范性普通高中",
 		"where":"www.gslnyz.cn"
+	},
+	{
+		"name":"公告",
+		"src":"images/school/announcement.png",
+		"introduction":"本次中考成绩暂未公布，请公布后查询",
+		"where":"dobando.top/announcement.html"
 	}],
 	"open":true
 }

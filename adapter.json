@@ -39,6 +39,10 @@
 		"type":"准考证号"
 	},
 	{
+		"field":"Field_2",
+		"type":"全市排名"
+	},
+	{
 		"field":"Field_3",
 		"type":"全县(区)排名"
 	},

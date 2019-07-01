@@ -39,10 +39,6 @@
 		"type":"准考证号"
 	},
 	{
-		"field":"Field_2",
-		"type":"全市排名"
-	},
-	{
 		"field":"Field_3",
 		"type":"全县(区)排名"
 	},
@@ -80,7 +76,7 @@
 	},
 	{
 		"field":"Field_13",
-		"type":"政治"
+		"type":"道德与法治"
 	},
 	{
 		"field":"Field_14",
@@ -88,7 +84,7 @@
 	},
 	{
 		"field":"Field_15",
-		"type":"政史综合"
+		"type":"道史综合"
 	},
 	{
 		"field":"Field_16",
@@ -105,6 +101,10 @@
 	{
 		"field":"Field_19",
 		"type":"地理"
+	},
+	{
+		"field":"Field_30",
+		"type":"生地综合"
 	},
 	{
 		"field":"Field_20",

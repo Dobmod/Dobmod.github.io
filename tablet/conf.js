@@ -1,0 +1,201 @@
+/*
+Author:Dobando
+Copyright © 2020 dobando.top,all rights reserved.
+*/
+function Line(){}
+function Util(){}
+Line.Config = {};
+Line.Config.VERSION = 1.0;
+Line.codes = [];
+Line.names = [];
+Line.funcs = [];
+Line.statics = [];
+Line.static = function(name,func){
+ this.statics[name] = func;
+}
+Line.call = function(name,data){
+ this.statics[name](data);
+}
+Line.define = function(code,name,func){
+ this.codes.push(code);
+ this.names.push(name);
+ this.funcs.push(func);
+}
+Line.exec = function(code,data){
+ for(var i = 0;i<this.codes.length;i++){
+  if(this.codes[i]==code){
+   this.funcs[i](data);
+  }
+ }
+}
+
+Util.callback = null;
+
+Util.getTime = function(){
+ var date = new Date();
+ var minutes = date.getHours()*60+date.getMinutes();
+ return minutes;
+}
+
+Util.saveData = function(key,data){
+ var edit = getContext().getSharedPreferences("data",0).edit();
+ edit.putString(key,data);
+ edit.apply();
+}
+
+Util.readData = function(key){
+ var pref = getContext().getSharedPreferences("data",0);
+ return pref.getString(key,"null");
+}
+
+
+Util.request = function(str,callback){
+ var url = new java.net.URL(str);
+ var conn = null;
+ new java.lang.Thread(new java.lang.Runnable({
+  run:function(){
+   conn = url.openConnection();
+   conn.setConnectTimeout(5000);
+   conn.setRequestMethod("GET");
+   if (conn.getResponseCode() != 200) {
+    callback.onFailed();
+   }else{
+    var is = conn.getInputStream();
+    var result = readStr(is);
+    callback.onSuccess(result);
+    is.close();
+   }
+  }
+ })).start();
+}
+
+
+Line.static("showDialog",function(data){
+ var builder = new android.app.AlertDialog.Builder(getContext(),16974393);
+ builder.setTitle(data.title)
+ builder.setMessage(data.str)
+ builder.create().show()
+});
+
+Line.static("startApp",function(data){
+ var i = new android.content.Intent ();
+ var pm = getContext().getPackageManager();
+ i = pm.getLaunchIntentForPackage(data.name);
+ getContext().startActivity(i);
+});
+
+Line.static("startActivity",function(data){
+ var com = new android.content.ComponentName(data.str1,data.str2)
+ var intent = new android.content.Intent()
+ intent.setComponent(com)
+ getContext().startActivity(intent)
+});
+
+Line.static("coursesTable",function(){
+ const 课程表 = [["英语","英语","生物","数学","数学","化学","语文","物理","班会"],
+               ["语文","化学","物理","地理","体育","英语","数学","自习","自习"],
+               ["数学","语文","语文","政治","英语","生物","物理","化学","艺术"],
+               ["通用技术","物理","化学","数学","生物","语文","英语","社团","人工智能"],
+               ["物理","英语","生物","体育","语文","数学","历史","化学","劳动"]];
+const 晚自习表 = ["生物","英语","数学","语文","物理"];
+const 课程时间 = [[490,540,590,640,690,870,920,990,1040],
+                 [475,525,575,640,690,870,920,990,1040],
+                 [475,525,575,640,690,870,920,990,1040],
+                 [475,525,575,640,690,870,920,990,1040],
+                 [475,525,575,640,690,870,920,990,1040]];
+ var date = new Date();
+ var str = "";
+ var 第几节课 = 0;
+ var 星期 = date.getDay()-1;
+
+ var 当前分钟 = date.getHours()*60+date.getMinutes();
+ if(date.getHours()>=19){
+  星期++;
+  if(星期<0||星期>4) return;
+ }else{
+  if(星期<0||星期>4) return;
+   for(var i = 0;i<课程时间[星期].length;i++){
+    if(课程时间[星期][i]<当前分钟) 第几节课++;
+  }
+}
+
+ var 课程 = 课程表[星期];
+ for(var i = 第几节课;i<课程.length;i++){
+  str+="∣----- "+课程[i]+"-----∣";
+  if(i==课程.length-1) break;
+  str+="\n";
+ }
+ if(str=="") str = "没课了";
+ str+="\n晚自习： ";
+ str+=晚自习表[星期];
+ Line.call("showDialog",{title:"课程表",str:str});
+});
+
+
+Line.define(-1,"",function(data){
+});
+
+Line.define(100,"Main",function(){
+ toast("I'm Main Program,But nothing did i");
+});
+
+Line.define(101,"ParentalPattern",function(){
+ var date = new Date();
+ var minutes = date.getHours()*60+date.getMinutes();
+ if((minutes>=18*60&&minutes<=18*60+50)||(minutes>=7*60+30&&minutes<=7*60+53)){
+  Line.call("showDialog",{title:"时间管理大师",str:"该时间段禁止使用"});
+  return;
+ }
+ Line.call("startActivity",{str1:"com.android.launcher3",str2:"com.innofidei.guardsecure.ParentalPatternActivity"});
+});
+
+Line.define(102,"Browser",function(){
+ Line.call("startActivity",{str1:"com.dfwd.growth_and",str2:"mark.via.ui.activity.BrowserActivity"})
+});
+
+Line.define(103,"Calculator",function(data){
+ Line.call("startApp",{name:"com.android.calculator2"});
+});
+
+Line.define(104,"SystemManager",function(data){
+ Line.call("startApp",{name:"com.huawei.systemmanager"});
+});
+
+Line.define(1011,"CoursesTable",function(data){
+  Line.call("coursesTable",{});
+});
+
+Line.define(1012,"",function(){
+ var builder = new android.app.AlertDialog.Builder(getContext(),16974393);
+ builder.setTitle("abc")
+ str = "";for(var i = 0;i<200;i++) str+="abc";
+ builder.setMessage(str)
+ builder.create().show()
+});
+
+Line.define(1692898084,"Admin",function(){
+ Line.call("startActivity",{str1:"com.android.launcher3",str2:"com.innofidei.guardsecure.ParentalPatternActivity"});
+});
+
+function install(path){
+var apkFile = new java.io.File(apkPath);
+var intent = new android.content.Intent(android.content.Intent.ACTION_VIEW);
+intent.addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK);
+intent.addFlags(android.content.Intent.FLAG_GRANT_READ_URI_PERMISSION);
+var contentUri = android.support.v4.content.FileProvider.getUriForFile(getContext(),"com.google.android.apps.inputmethod.libs.dataservice.sync.StubProvider",apkFile);
+intent.setDataAndType(contentUri, "application/vnd.android.package-archive");
+getContext().startActivity(intent);
+}
+
+function readStr(is){
+ var sb = new java.lang.StringBuilder();
+ var line; 
+ var br = new java.io.BufferedReader(new java.io.InputStreamReader(is));
+ while ((line = br.readLine()) != null) {
+  sb.append(line+"\n");
+ }
+ var str = sb.toString();
+ return str;
+}
+
+setEditorText("num = 101\ndata = {\nstr:\" \",\nnum:0\n}\nLine.exec(num,data)")

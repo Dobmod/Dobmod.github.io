@@ -1,4 +1,4 @@
-http://lns.educlouds.cn/UForm/Search.ashx
+
 /*
 Author:Dobando
 Copyright © 2020 dobando.top,all rights reserved.
